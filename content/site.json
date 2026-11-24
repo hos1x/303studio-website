@@ -1,0 +1,82 @@
+{
+  "tagline": "이야기가 콘텐츠가 되는 공간, 303호스튜디오",
+  "intro": "303호스튜디오는 기획부터 촬영, 편집, 후반 작업까지 영상 제작의 A to Z를 책임지는 올인원(All-in-One) 크리에이티브 프로덕션입니다.\n클라이언트의 머릿속에 있는 추상적인 아이디어를 구체적인 '콘텐츠'로 실현합니다.\n우리는 단순히 영상을 제작하는 것을 넘어, 브랜드의 가치를 담은 이야기를 만듭니다.",
+  "process": {
+    "desc": "303호스튜디오는 기획, 연출, 촬영, 편집, 후반작업 등 영상 제작의 모든 과정을 수행합니다.\n클라이언트와의 원활한 소통을 통해 완성도 높은 영상을 제작합니다.",
+    "steps": [
+      {
+        "en": "PRE-PRODUCTION",
+        "ko": "기획",
+        "image": "/assets/uploads/process-pre.jpg"
+      },
+      {
+        "en": "PRODUCTION",
+        "ko": "연출 / 촬영",
+        "image": "/assets/uploads/process-production.jpg"
+      },
+      {
+        "en": "POST-PRODUCTION",
+        "ko": "편집 / 후반작업",
+        "image": "/assets/uploads/process-post.jpg"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "name": "영상"
+    },
+    {
+      "name": "포스터"
+    },
+    {
+      "name": "디자인"
+    },
+    {
+      "name": "SNS"
+    }
+  ],
+  "clients": [
+    {
+      "name": "샘플 브랜드 A",
+      "logo": "/assets/sample/logos/brand-a.svg"
+    },
+    {
+      "name": "샘플 브랜드 B",
+      "logo": "/assets/sample/logos/brand-b.svg"
+    },
+    {
+      "name": "샘플 브랜드 C",
+      "logo": "/assets/sample/logos/brand-c.svg"
+    },
+    {
+      "name": "샘플 브랜드 D",
+      "logo": "/assets/sample/logos/brand-d.svg"
+    },
+    {
+      "name": "샘플 브랜드 E",
+      "logo": "/assets/sample/logos/brand-e.svg"
+    },
+    {
+      "name": "샘플 브랜드 F",
+      "logo": "/assets/sample/logos/brand-f.svg"
+    },
+    {
+      "name": "샘플 브랜드 G",
+      "logo": "/assets/sample/logos/brand-g.svg"
+    },
+    {
+      "name": "샘플 브랜드 H",
+      "logo": "/assets/sample/logos/brand-h.svg"
+    }
+  ],
+  "company": {
+    "name": "303호스튜디오",
+    "bizNo": "570-11-02798",
+    "ceo": "이호석",
+    "phone": "010-9950-4930",
+    "email": "hoseok@303studio.net",
+    "youtube": "https://www.youtube.com/@303%ED%98%B8%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4",
+    "instagram": "https://www.instagram.com/303studio_?utm_source=ig_web_button_share_sheet&hvrq=ZDNlZDc0MzIxNw==",
+    "copyright": "© 2025 303호스튜디오. All Rights Reserved."
+  }
+}
