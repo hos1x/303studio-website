@@ -20,6 +20,22 @@
     return /^(https?:\/\/|\/|mailto:|tel:)/i.test(s) ? s : '';
   };
   const nl2br = (s) => esc(s).replace(/\n/g, '<br>');
+  // 관리자 '소개' 칸의 글자 효과(굵게·밑줄·취소선·기울임)만 HTML로 바꾼다. 다른 태그는 모두 글자로 보인다.
+  function richText(s) {
+    let t = String(s ?? '').replace(/\r\n?/g, '\n')
+      .replace(/(?:\\| {2,})\n/g, '\n')   // 마크다운 줄바꿈 표시(\ 또는 끝 공백 2칸)
+      .replace(/\\([\\`*_{}[\]()#+\-.!|~<>])/g, (_, c) => `\u0000${c.charCodeAt(0)}\u0000`);
+    t = esc(t)
+      .replace(/&lt;(\/?)u&gt;/gi, '<$1u>')
+      .replace(/&lt;br\s*\/?&gt;/gi, '\n')
+      .replace(/~~(?=\S)([\s\S]*?\S)~~/g, '<s>$1</s>')
+      .replace(/\*\*(?=\S)([\s\S]*?\S)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[^\p{L}\p{N}_])__(?=\S)([\s\S]*?\S)__(?![\p{L}\p{N}_])/gu, '$1<strong>$2</strong>')
+      .replace(/\*(?=\S)([^*\n]*?\S)\*/g, '<em>$1</em>')
+      .replace(/(^|[^\p{L}\p{N}_])_(?=\S)([^_\n]*?\S)_(?![\p{L}\p{N}_])/gu, '$1<em>$2</em>')
+      .replace(/\u0000(\d+)\u0000/g, (_, n) => `&#${n};`);
+    return t.replace(/\n/g, '<br>');
+  }
   const slugify = (s) => String(s).trim().toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '') || 'work';
   const tel = (p) => String(p ?? '').replace(/[^\d+]/g, '');
 
@@ -374,9 +390,9 @@
           <a class="back" href="#/work">${BACK}Work</a>
           <h1 class="display-l">${esc(w.title)}</h1>
           ${meta.length ? `<dl class="meta">${meta.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
-          ${w.description ? `<p class="body-l detail-desc">${nl2br(w.description)}</p>` : ''}
         </header>
         <div class="wrap media-list">${media}</div>
+        ${w.description ? `<div class="wrap detail-desc-wrap"><p class="body-l detail-desc">${richText(w.description)}</p></div>` : ''}
         <nav class="wrap pager" aria-label="다른 작업">
           ${prev ? `<a href="#/work/${encodeURIComponent(prev.slug)}"><span class="label muted">이전 작업</span><span class="heading-s">${esc(prev.title)}</span></a>` : '<span></span>'}
           ${next ? `<a class="pager__next" href="#/work/${encodeURIComponent(next.slug)}"><span class="label muted">다음 작업</span><span class="heading-s">${esc(next.title)}</span></a>` : ''}
@@ -387,7 +403,11 @@
 
   // 함께한 브랜드: 2줄로 나눠 옆으로 흐르는 로고 띠.
   // 로고마다 비율이 달라도 같은 면적으로 보이도록 √비율로 너비를 정한다.
-  const LOGO_PER_VIEW = 5;
+  const LOGO_BAND_W = 880;   // 로고 띠 최대 폭(px) — style.css의 .marquees max-width와 같게
+  const LOGO_S = 52;         // 정사각형 로고 기준 한 변(px)
+  const LOGO_GAP = 48;       // 로고 사이 간격(px)
+  const LOGO_SPEED = 30;     // 흐르는 속도(px/초)
+  const logoW = (b) => (safeUrl(b.logo) ? LOGO_S * Math.sqrt(aspectOf(b.logo)) : 120) + LOGO_GAP;
   function logoItem(b, hidden) {
     const url = safeUrl(b.logo);
     const ra = Math.sqrt(aspectOf(b.logo)).toFixed(3);
@@ -400,12 +420,13 @@
       ? [clients.filter((_, i) => i % 2 === 0), clients.filter((_, i) => i % 2 === 1)]
       : [clients];
     return `<div class="marquees">${rows.map((row, r) => {
-      // 한 바퀴 분량이 화면 한 줄(5칸)보다 길도록 반복한 뒤, 이어지게 두 번 붙인다.
-      const rep = Math.max(1, Math.ceil(LOGO_PER_VIEW / row.length));
+      // 한 바퀴 분량이 띠 폭보다 길도록 반복한 뒤, 이어지게 두 번 붙인다.
+      const rowW = row.reduce((s, b) => s + logoW(b), 0);
+      const rep = Math.max(1, Math.ceil(LOGO_BAND_W / rowW));
       const set = Array.from({ length: rep }, () => row).flat();
       const items = set.map((b, i) => logoItem(b, i >= row.length)).join('')
         + set.map((b) => logoItem(b, true)).join('');
-      return `<div class="marquee${r % 2 ? ' marquee--reverse' : ''}" style="--dur:${set.length * 3.5}s">
+      return `<div class="marquee${r % 2 ? ' marquee--reverse' : ''}" style="--dur:${(rowW * rep / LOGO_SPEED).toFixed(1)}s">
         <ul class="marquee__track" role="list">${items}</ul>
       </div>`;
     }).join('')}</div>`;
