@@ -95,6 +95,30 @@
           "ratio": "자동"
         }
       ]
+    },
+    {
+      "title": "청라 아크원 푸르지오 홍보 콘텐츠 제작",
+      "year": "2026",
+      "category": "Commercial",
+      "client": "푸르지오",
+      "role": "촬영, 편집",
+      "featured": true,
+      "cover": "",
+      "description": "청라아크원푸르지오 분양의 모든 것\n\n청라아크원푸르지오의 입지와 단지 특징을 예능 형식으로 풀어낸 영상 시리즈\n\n**Credit**\n\n기획・연출  **저스트크리에이티브**\n\nPD  **권혁범**\n\n촬영  **최병호, 신효석, 안상언, 이호석**\n\n편집  **이호석(303호스튜디오)**",
+      "media": [
+        {
+          "url": "https://youtu.be/_wAuOJSTLek",
+          "image": "",
+          "caption": "구라의 팩트체크 in 청라 아크원 푸르지오 ㅣ 임우일의 긴급 인터뷰! 청라의 미래는?!",
+          "ratio": "자동"
+        },
+        {
+          "url": "https://youtu.be/iWx1myehAeU?si=g3rzJbLJ-PryJXg4",
+          "image": "",
+          "caption": "고독한 자산가, 청라에 가다 in 청라 아크원 푸르지오 아파트편 ㅣ 13년 찐주민 김구라, 후회가 머리 끝까지?!",
+          "ratio": "자동"
+        }
+      ]
     }
   ]
 }
