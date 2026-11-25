@@ -419,9 +419,9 @@
           <a class="back" href="#/work">${BACK}Work</a>
           <h1 class="display-l">${esc(w.title)}</h1>
           ${meta.length ? `<dl class="meta">${meta.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
+          ${w.description ? `<p class="body-l detail-desc">${richText(w.description)}</p>` : ''}
         </header>
         <div class="wrap media-list">${media}</div>
-        ${w.description ? `<div class="wrap detail-desc-wrap"><p class="body-l detail-desc">${richText(w.description)}</p></div>` : ''}
         <nav class="wrap pager" aria-label="다른 작업">
           ${prev ? `<a href="#/work/${encodeURIComponent(prev.slug)}"><span class="label muted">이전 작업</span><span class="heading-s">${esc(prev.title)}</span></a>` : '<span></span>'}
           ${next ? `<a class="pager__next" href="#/work/${encodeURIComponent(next.slug)}"><span class="label muted">다음 작업</span><span class="heading-s">${esc(next.title)}</span></a>` : ''}

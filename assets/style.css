@@ -247,8 +247,7 @@ body[data-page="home"] .nav__logo-img--green { display: none; }
 .meta div { text-align: left; }
 .meta dt { font-size: var(--label); color: var(--color-text-secondary); font-weight: 500; }
 .meta dd { margin-top: var(--space-4, 4px); }
-.detail-desc-wrap { padding-bottom: var(--section-y); }
-.detail-desc { margin: 0 auto; max-width: 720px; text-align: center; }
+.detail-desc { margin: var(--space-48) auto 0; max-width: 720px; text-align: center; }
 @media (max-width: 768px) { .meta { gap: var(--space-16) var(--space-32); } }
 
 .media-list { display: grid; gap: var(--space-64); padding-bottom: var(--section-y); }
