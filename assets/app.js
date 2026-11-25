@@ -21,7 +21,36 @@
   };
   const nl2br = (s) => esc(s).replace(/\n/g, '<br>');
   // 관리자 '소개' 칸의 글자 효과(굵게·밑줄·취소선·기울임)만 HTML로 바꾼다. 다른 태그는 모두 글자로 보인다.
+  // 관리자 편집기가 저장한 HTML에서 허용한 서식만 남긴다. 문단 하나 = 한 줄, 빈 문단 = 빈 줄.
+  const RICH_TAGS = { strong: 'strong', b: 'strong', em: 'em', i: 'em', u: 'u', s: 's', del: 's', strike: 's' };
+  function richHTML(html) {
+    const doc = new DOMParser().parseFromString(String(html), 'text/html');
+    const inline = (node) => [...node.childNodes].map((n) => {
+      if (n.nodeType === 3) return esc(n.textContent);
+      if (n.nodeType !== 1) return '';
+      const tag = n.tagName.toLowerCase();
+      if (tag === 'br') return '\n';
+      const inner = inline(n);
+      const deco = (n.getAttribute('style') || '').toLowerCase();
+      let out = RICH_TAGS[tag] ? `<${RICH_TAGS[tag]}>${inner}</${RICH_TAGS[tag]}>` : inner;
+      if (!RICH_TAGS[tag]) {
+        if (/font-weight:\s*(bold|[6-9]00)/.test(deco)) out = `<strong>${out}</strong>`;
+        if (/font-style:\s*italic/.test(deco)) out = `<em>${out}</em>`;
+        if (/underline/.test(deco)) out = `<u>${out}</u>`;
+        if (/line-through/.test(deco)) out = `<s>${out}</s>`;
+      }
+      return out;
+    }).join('');
+    const blocks = [];
+    for (const n of doc.body.childNodes) {
+      if (n.nodeType === 1 && /^(p|div|h[1-6]|li|blockquote)$/i.test(n.tagName)) blocks.push(inline(n).replace(/\n$/, ''));
+      else if (n.nodeType === 1 && /^(ul|ol)$/i.test(n.tagName)) [...n.children].forEach((li) => blocks.push(inline(li).replace(/\n$/, '')));
+      else { const t = n.nodeType === 3 ? esc(n.textContent).trim() : inline({ childNodes: [n] }); if (t) blocks.push(t); }
+    }
+    return blocks.join('\n').replace(/\n/g, '<br>');
+  }
   function richText(s) {
+    if (/^\s*<(p|div|h[1-6]|ul|ol|blockquote|span|strong|b|em|i|u|s|br)[\s>/]/i.test(String(s ?? ''))) return richHTML(s);
     let t = String(s ?? '').replace(/\r\n?/g, '\n')
       .replace(/(?:\\| {2,})\n/g, '\n')   // 마크다운 줄바꿈 표시(\ 또는 끝 공백 2칸)
       .replace(/\\([\\`*_{}[\]()#+\-.!|~<>])/g, (_, c) => `\u0000${c.charCodeAt(0)}\u0000`);

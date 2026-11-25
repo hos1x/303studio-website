@@ -64,12 +64,13 @@ collections:
                 hint: 비워 두면 아래 상세 콘텐츠의 YouTube·Vimeo 링크에서 썸네일을 자동으로 가져옵니다. 다른 이미지를 쓰고 싶을 때만 올리세요. Instagram만 있는 작업은 Instagram이 썸네일을 공개하지 않으므로 직접 올려 주세요.
               - name: description
                 label: 소개
-                widget: markdown
+                widget: richtext
+                format: html
                 required: false
                 modes: [rich_text]
                 buttons: [bold, underline, strikethrough, italic]
                 editor_components: []
-                hint: 글자를 선택한 뒤 위의 버튼으로 굵게·밑줄·취소선·기울임을 줄 수 있어요. 홈페이지에서는 가운데 정렬로 보여요.
+                hint: 글자를 선택한 뒤 위의 버튼으로 굵게·밑줄·취소선·기울임을 줄 수 있어요. Enter 한 번은 줄바꿈, 두 번은 빈 줄이에요. 홈페이지에서는 가운데 정렬로 보여요.
               - name: media
                 label: 상세 페이지 콘텐츠
                 label_singular: 콘텐츠
