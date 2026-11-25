@@ -50,26 +50,6 @@
     {
       "name": "SK Telecom",
       "logo": "/assets/uploads/SK-telecom_RGB_EN.webp"
-    },
-    {
-      "name": "샘플 브랜드 D",
-      "logo": "/assets/sample/logos/brand-d.svg"
-    },
-    {
-      "name": "샘플 브랜드 E",
-      "logo": "/assets/sample/logos/brand-e.svg"
-    },
-    {
-      "name": "샘플 브랜드 F",
-      "logo": "/assets/sample/logos/brand-f.svg"
-    },
-    {
-      "name": "샘플 브랜드 G",
-      "logo": "/assets/sample/logos/brand-g.svg"
-    },
-    {
-      "name": "샘플 브랜드 H",
-      "logo": "/assets/sample/logos/brand-h.svg"
     }
   ],
   "company": {
