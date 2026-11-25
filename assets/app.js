@@ -321,7 +321,7 @@
           ${site.intro ? `<p class="body-l hero__intro">${nl2br(site.intro)}</p>` : ''}
         </div>
       </section>
-      <section class="section wrap" aria-labelledby="sel-title">
+      <section class="section section--flush-top wrap" aria-labelledby="sel-title">
         <h2 class="visually-hidden" id="sel-title">대표 작업</h2>
         ${grid(list, 'masonry--feature')}
         <div class="more"><a class="btn" href="#/work">작업 전체 보기</a></div>
