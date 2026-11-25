@@ -190,7 +190,7 @@ body[data-page="home"] .nav__logo-img--green { display: none; }
 .card:hover .card__actions, .card:focus-within .card__actions { opacity: 1; }
 .card:hover .card__title { color: var(--color-text-brand); }
 
-.card__cap { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4) var(--space-16); flex-wrap: wrap; margin-top: var(--space-12); }
+.card__cap { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); margin-top: var(--space-12); }
 .card__title { font-size: var(--heading-s); line-height: 1.4545; font-weight: 500; transition: color .2s var(--ease); }
 .card__meta { font-size: var(--label); color: var(--color-text-secondary); }
 .empty { padding: var(--space-64) 0; color: var(--color-text-secondary); }
