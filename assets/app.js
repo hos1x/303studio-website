@@ -268,14 +268,16 @@
         ${cover ? `<img src="${esc(cover)}" alt="" loading="lazy" decoding="async">` : ''}
         <a class="card__link" href="${href}" tabindex="-1" aria-hidden="true"></a>
         <div class="card__actions">
-          ${video ? `<button class="card__btn card__btn--play" type="button" data-play="${esc(w.slug)}">${PLAY_SM}<span>영상 재생</span></button>` : ''}
-          <a class="card__btn card__btn--more" href="${href}">자세히보기</a>
+          <div class="card__info">
+            <h3 class="card__title">${esc(w.title)}</h3>
+            <p class="card__meta">${esc([w.category, w.year].filter(Boolean).join(', '))}</p>
+          </div>
+          <div class="card__btns">
+            ${video ? `<button class="card__btn card__btn--play" type="button" data-play="${esc(w.slug)}" aria-label="${esc(w.title)} 영상 재생">${PLAY_SM}<span>영상 재생</span></button>` : ''}
+            <a class="card__btn card__btn--more" href="${href}" aria-label="${esc(w.title)} 자세히보기">자세히보기</a>
+          </div>
         </div>
       </div>
-      <a class="card__cap" href="${href}">
-        <h3 class="card__title">${esc(w.title)}</h3>
-        <p class="card__meta">${esc([w.category, w.year].filter(Boolean).join(', '))}</p>
-      </a>
     </article>`;
   }
   const grid = (list, mod = '') => (list.length
