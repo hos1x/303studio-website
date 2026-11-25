@@ -41,7 +41,7 @@
   "clients": [
     {
       "name": "CJ제일제당",
-      "logo": "/assets/uploads/Screenshot 2026-11-25 at 09.22.13.webp"
+      "logo": "/assets/uploads/Asset 1@4x.webp"
     },
     {
       "name": "삼성전자",
@@ -50,6 +50,46 @@
     {
       "name": "SK Telecom",
       "logo": "/assets/uploads/SK-telecom_RGB_EN.webp"
+    },
+    {
+      "name": "KT",
+      "logo": "/assets/uploads/01_KT Wordmark (Standard)_01.webp"
+    },
+    {
+      "name": "LG",
+      "logo": "/assets/uploads/lg.webp"
+    },
+    {
+      "name": "현대차정몽구재단",
+      "logo": "/assets/uploads/ci_130821 2.webp"
+    },
+    {
+      "name": "한화에어로스페이스",
+      "logo": "/assets/uploads/한화.webp"
+    },
+    {
+      "name": "카카오임팩트",
+      "logo": "/assets/uploads/cFU4muUQUiQ2iTBb0INCFNSqTM_zrzMHD7mF9uqDOHPgZWVh4ayZc6VdoXvS0EkE8Yn_CiHW65F9KBY0YtLasjkWmjwEYjTVubIdiCcStSO9AKoZqeRi0A--wdnI3af-quYVoIHjNaWCB-jgzWr3IA.svg"
+    },
+    {
+      "name": "현대모비스",
+      "logo": "/assets/uploads/현대모비스.webp"
+    },
+    {
+      "name": "푸르지오",
+      "logo": "/assets/uploads/Prugio_bI.webp"
+    },
+    {
+      "name": "계룡장학재단",
+      "logo": "/assets/uploads/logo_mobile.webp"
+    },
+    {
+      "name": "대학내일",
+      "logo": "/assets/uploads/대학내일.webp"
+    },
+    {
+      "name": "NHR",
+      "logo": "/assets/uploads/nhr.webp"
     }
   ],
   "company": {
