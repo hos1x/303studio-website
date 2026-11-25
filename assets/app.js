@@ -385,6 +385,32 @@
     };
   }
 
+  // 함께한 브랜드: 2줄로 나눠 옆으로 흐르는 로고 띠.
+  // 로고마다 비율이 달라도 같은 면적으로 보이도록 √비율로 너비를 정한다.
+  const LOGO_PER_VIEW = 5;
+  function logoItem(b, hidden) {
+    const url = safeUrl(b.logo);
+    const ra = Math.sqrt(aspectOf(b.logo)).toFixed(3);
+    return `<li class="logo-box"${hidden ? ' aria-hidden="true"' : ` title="${esc(b.name)}"`}>${url
+      ? `<img src="${esc(url)}" alt="${hidden ? '' : esc(b.name)}" loading="lazy" style="--ra:${ra}" onload="this.naturalHeight&&this.style.setProperty('--ra',Math.sqrt(this.naturalWidth/this.naturalHeight))">`
+      : `<span>${esc(b.name)}</span>`}</li>`;
+  }
+  function logoMarquee(clients) {
+    const rows = clients.length > 1
+      ? [clients.filter((_, i) => i % 2 === 0), clients.filter((_, i) => i % 2 === 1)]
+      : [clients];
+    return `<div class="marquees">${rows.map((row, r) => {
+      // 한 바퀴 분량이 화면 한 줄(5칸)보다 길도록 반복한 뒤, 이어지게 두 번 붙인다.
+      const rep = Math.max(1, Math.ceil(LOGO_PER_VIEW / row.length));
+      const set = Array.from({ length: rep }, () => row).flat();
+      const items = set.map((b, i) => logoItem(b, i >= row.length)).join('')
+        + set.map((b) => logoItem(b, true)).join('');
+      return `<div class="marquee${r % 2 ? ' marquee--reverse' : ''}" style="--dur:${set.length * 3.5}s">
+        <ul class="marquee__track" role="list">${items}</ul>
+      </div>`;
+    }).join('')}</div>`;
+  }
+
   async function about() {
     const c = site.company || {};
     const pr = site.process || {};
@@ -418,11 +444,7 @@
 
       ${clients.length ? `<section class="section wrap clients" aria-labelledby="clients-title">
         <h2 class="heading-m" id="clients-title">함께한 브랜드</h2>
-        <ul class="logos" role="list">
-          ${clients.map((b) => `<li class="logo-box" title="${esc(b.name)}">${safeUrl(b.logo)
-            ? `<img src="${esc(safeUrl(b.logo))}" alt="${esc(b.name)}" loading="lazy" style="--a:${aspectOf(b.logo).toFixed(3)}">`
-            : `<span>${esc(b.name)}</span>`}</li>`).join('')}
-        </ul>
+        ${logoMarquee(clients)}
       </section>` : ''}
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">

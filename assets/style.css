@@ -290,10 +290,25 @@ body[data-page="home"] .nav__logo-img--green { display: none; }
 /* ========== About ========== */
 /* 함께한 브랜드: 가운데 정렬. 로고 개수에 맞춰 칸이 채워지고, 마지막 줄도 가운데에 모임 */
 .clients { text-align: center; }
-.logos { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-16); max-width: 1312px; margin: var(--space-48) auto 0; padding: 0; list-style: none; }
-.logo-box { flex: 0 1 200px; position: relative; aspect-ratio: 5 / 2; display: grid; place-items: center; padding: var(--space-16) var(--space-24); color: var(--color-text-secondary); font-size: var(--label); text-align: center; overflow: hidden; }
-.logo-box img { position: absolute; top: 18%; left: 14%; width: 72%; height: 64%; object-fit: contain; }
-@media (max-width: 480px) { .logo-box { flex-basis: calc(50% - var(--space-8)); } }
+/* 함께한 브랜드: 2줄 로고 띠 (한 줄에 5칸, 태블릿 4칸, 모바일 3칸) */
+.marquees { --per: 5; --logo-s: 52px; display: grid; gap: var(--space-16); margin-top: var(--space-48); }
+.marquee { container-type: inline-size; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.marquee__track { display: flex; width: max-content; margin: 0; padding: 0; list-style: none; animation: marquee var(--dur, 30s) linear infinite; }
+.marquee--reverse .marquee__track { animation-direction: reverse; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.logo-box { flex: 0 0 calc(100cqw / var(--per)); height: 96px; display: grid; place-items: center; color: var(--color-text-secondary); font-size: var(--label); text-align: center; }
+/* 같은 면적: 너비 = 기준 × √비율 → 높이 = 기준 ÷ √비율 */
+.logo-box img { width: calc(var(--logo-s) * var(--ra, 1.6)); max-width: 80%; height: auto; max-height: 72px; object-fit: contain; }
+@media (max-width: 900px) { .marquees { --per: 4; --logo-s: 44px; } }
+@media (max-width: 480px) { .marquees { --per: 3; --logo-s: 36px; } .logo-box { height: 72px; } }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee__track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; }
+  .logo-box[aria-hidden="true"] { display: none; }
+}
 
 .contact { background: var(--color-bg-brand); color: var(--color-text-on-brand); scroll-margin-top: 72px; }
 .contact__title { color: var(--color-text-on-brand-muted); }
