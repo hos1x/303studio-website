@@ -8,12 +8,90 @@
       "role": "제작 총괄",
       "featured": true,
       "cover": "",
-      "description": "<p>2026 ONSO Festival 현장을 생동감있게 담은 스케치 영상.</p><p><br></p><p><strong>Credit</strong></p><p><strong>기획・연출・제작</strong>  이호석(303호스튜디오)</p><p><strong>촬영</strong>  장범수, 이호석</p>",
+      "description": "2026 ONSO Festival 현장을 생동감있게 담은 스케치 영상.\n\n**Credit**\n**기획・연출・제작**  이호석(303호스튜디오)\n**촬영**  장범수, 이호석",
       "media": [
         {
           "url": "https://youtu.be/XUYfm9NJI3I",
           "image": "",
           "caption": "",
+          "ratio": "자동"
+        }
+      ]
+    },
+    {
+      "title": "[현장스케치] 2026 LG유플러스 테크 컨퍼런스 \"유플텍플\"",
+      "year": "2026",
+      "category": "Sketch",
+      "client": "LG유플러스",
+      "role": "제작 총괄",
+      "featured": true,
+      "cover": "",
+      "description": "2026 LG유플러스 테크 컨퍼런스 \"유플텍플\" 현장을 생동감있게 담은 스케치 영상.\n\n**Credit**\n**기획・연출・제작**  이호석(303호스튜디오)\n**촬영**  최준영, 이호석",
+      "media": [
+        {
+          "url": "https://youtu.be/wgfXu46fVog",
+          "image": "",
+          "caption": "",
+          "ratio": "자동"
+        }
+      ]
+    },
+    {
+      "title": "【 ✨ LG DAY 2026 】 LG가 캠퍼스로 찾아갑니다 🚌 | 현장 스케치",
+      "year": "2026",
+      "category": "Sketch",
+      "client": "LG그룹",
+      "role": "제작 총괄",
+      "featured": true,
+      "cover": "",
+      "description": "2026 LG DAY 현장을 생동감있게 담은 스케치 영상.\n\n**Credit**\n**기획・연출・제작**  이호석(303호스튜디오)\n**촬영**  최준영, 이호석",
+      "media": [
+        {
+          "url": "https://youtu.be/Xz7sGVbCWrQ",
+          "image": "",
+          "caption": "",
+          "ratio": "자동"
+        }
+      ]
+    },
+    {
+      "title": "스페이스 허브 TV I 100문 100답 시리즈",
+      "year": "2026",
+      "category": "Interview",
+      "client": "한화에어로스페이스",
+      "role": "촬영, 편집",
+      "featured": true,
+      "cover": "",
+      "description": "우주덕후 100스페이스가 들려주는사소한 지구적 질문에 대한 거대한 우주적 대답🌠\n\n**Credit**\n\n**기획・연출**  대학내일\n\n**촬영**  이호석, 대학내일\n\n**편집**  이호석(303호스튜디오)",
+      "media": [
+        {
+          "url": "https://youtu.be/1xRNU5dO2cY",
+          "image": "",
+          "caption": "우주 덕후가 사랑에 빠지는 순간ㅣ100문 100답",
+          "ratio": "자동"
+        },
+        {
+          "url": "https://youtu.be/oSbMlg5eMeI?si=MKOMOoFvqZtksQfJ",
+          "image": "",
+          "caption": "우주 덕후는 외계인을 믿을까?ㅣ100문 100답",
+          "ratio": "자동"
+        },
+        {
+          "url": "https://youtu.be/VI5ApV6EkPM?si=rkucpQgwcoaunyxv",
+          "image": "",
+          "caption": "50명의 우주덕후가 말하는 대한민국 우주산업 미래｜100문 100답 ｜EP3",
+          "ratio": "자동"
+        },
+        {
+          "url": "https://youtu.be/Urbz5qqPOH0?si=aHpJru3dy8xh9vTC",
+          "image": "",
+          "caption": "누리호와 함께, 우주에 닿길 바라는 당신의 소원은?｜100문 100답 ｜EP4",
+          "ratio": "자동"
+        },
+        {
+          "url": "https://youtu.be/Qro0QRIymm8?si=2aLVCogIYFI9gcNe",
+          "image": "",
+          "caption": "내 인생을 다시 선택할 수 있다면? 우주덕후 50명에게 물었습니다｜100문 100답｜EP5",
           "ratio": "자동"
         }
       ]
