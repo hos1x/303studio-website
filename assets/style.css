@@ -178,9 +178,9 @@ body[data-page="home"] .nav__logo-img--green { display: none; }
 }
 .card__btn {
   display: inline-flex; align-items: center; gap: var(--space-8);
-  min-height: 34px; padding: 6px var(--space-16); gap: 6px;
+  min-height: 24px; padding: 4px 10px; gap: 4px;
   border-radius: var(--radius-pill); border: 1px solid var(--white);
-  color: var(--white); font-size: 13px; font-weight: 600; line-height: 1;
+  color: var(--white); font-size: 11px; font-weight: 600; line-height: 1;
   pointer-events: auto;
   transition: background-color .2s var(--ease), color .2s var(--ease);
 }
@@ -193,6 +193,7 @@ body[data-page="home"] .nav__logo-img--green { display: none; }
 .card__title { font-size: var(--heading-s); line-height: 1.4545; font-weight: 600;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .card__meta { font-size: var(--label); color: color-mix(in srgb, var(--white) 75%, transparent); }
+.card__btn svg { width: 9px; height: 9px; }
 .card__btns { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-8); }
 @media (max-width: 1024px) { .card__actions { padding: var(--space-16); gap: var(--space-12); } .card__title { font-size: 16px; } }
 .empty { padding: var(--space-64) 0; color: var(--color-text-secondary); }
@@ -202,7 +203,8 @@ body[data-page="home"] .nav__logo-img--green { display: none; }
   .card__media img { filter: none; }
   .card__actions { opacity: 1; inset: auto var(--space-12) var(--space-12) auto; padding: 0; background: none; }
   .card__btn--more, .card__info { display: none; }
-  .card__btn--play { min-height: 40px; padding: var(--space-8) var(--space-16); font-size: 13px; box-shadow: 0 2px 8px rgba(0, 0, 0, .25); }
+  .card__btn--play { min-height: 40px; padding: var(--space-8) var(--space-16); gap: var(--space-8); font-size: 13px; box-shadow: 0 2px 8px rgba(0, 0, 0, .25); }
+  .card__btn--play svg { width: 12px; height: 12px; }
 }
 
 /* ========== 영상 팝업 플레이어 ========== */
